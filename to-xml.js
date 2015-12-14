@@ -2,6 +2,7 @@
 var XLSX = require('xlsx');
 var XML_BUILDER = require('xmlbuilder');
 var FS = require('fs');
+var FS_UTILS = require('./fs-utils');
 
 
 function toXml(inputFilePath, outputDirPath, stringNameKey) {
@@ -57,7 +58,7 @@ function jsonToXmlBuilders(translations, stringNameKey) {
 
 
 function writeXmlFiles(xmlBuilders, outputDirPath) {
-  createDirIfNotExists(outputDirPath);
+  FS_UTILS.createDirIfNotExists(outputDirPath);
   for (var languageName in xmlBuilders) {
     var xmlBuilder = xmlBuilders[languageName];
     FS.writeFileSync(
@@ -78,22 +79,6 @@ function getXmlBuilder(forLanguage, xmlBuildersCache) {
   }
 
   return xmlBuilder;
-}
-
-
-function createDirIfNotExists(dirPath) {
-  try {
-    var stat = FS.statSync(dirPath);
-    if (!stat.isDirectory()) {
-      throw {
-        type: "IO Exception",
-        message: "\"" + dirPath + "\" is not a directory"
-      };
-    }
-  } catch (err) {
-    // Error is usually thrown if the file doesn't exists
-    FS.mkdirSync(dirPath);
-  }
 }
 
 
