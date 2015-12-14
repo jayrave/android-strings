@@ -1,0 +1,20 @@
+{
+  "name": "android-strings",
+  "version": "0.1.0",
+  "description": "Extract text to be localized from strings.xml & also build strings.xml from localized text",
+  "keywords": [
+    "android",
+    "strings",
+    "xml"
+  ],
+  "author": "jayrave",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "xlsx": "0.8.0",
+    "xmlbuilder": "4.1.0"
+  },
+  "repository" : {
+    "type" : "git",
+    "url" : "https://github.com/jayrave/android-strings.git"
+  }
+}
