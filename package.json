@@ -20,6 +20,6 @@
     "url": "https://github.com/jayrave/android-strings.git"
   },
   "bin": {
-    "android-strings": "command-line.js"
+    "android-strings": "bin/command-line.js"
   }
 }
